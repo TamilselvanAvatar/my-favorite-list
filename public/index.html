@@ -1,0 +1,42 @@
+<div id="root"></div>
+<div id="modal"></div>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        keyframes: {
+          slide: {
+            '0%': { width: '0%' },
+            '100%': { width: '100%' },
+          },
+          rSlide: {
+            '0%': { width: '100%' },
+            '100%': { width: '0%' },
+          },
+          spinner: {
+            '0%': { transform: ' rotate(0deg)', color: 'red' },
+            '20%': { color: 'green' },
+            '40%': { color: 'violet' },
+            '60%': { color: 'green' },
+            '80%': { color: 'red' },
+            '100%': { transform: ' rotate(500deg)' },
+          },
+        },
+        animation: {
+          slide: 'slide 1s linear 1 forwards',
+          rSlide: 'rSlide 1s linear 1 forwards',
+          spinner: 'spinner 2s ease-in-out infinite',
+        },
+        boxShadow: {
+          '3xl': '0px 0px 8px 1px #930fbf82;',
+        },
+      },
+      screens: {
+        sm: [{ min: '250px', max: '400px' }],
+        md: [{ min: '400px', max: '900px' }],
+        lg: [{ min: '900px' }],
+      },
+    },
+  };
+</script>
