@@ -14,10 +14,13 @@ export default function Root() {
 
   useEffect(() => {
     if (currentList) {
-      // console.log('List - Main', list);
+      const StringfiedList = JSON.stringify(list);
+      const listName = currentList.key;
       const tempData = { ...currentList.data };
-      tempData[currentList.key] = JSON.stringify(list);
-      doAddList(tempData);
+      tempData[listName] = StringfiedList;
+      if (StringfiedList !== currentList.data[listName]) {
+        doAddList(tempData);
+      }
     }
   }, [list]);
   return (
